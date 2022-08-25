@@ -10,13 +10,15 @@ function App() {
     scope: 'profile%20openid',
     nonce: 'd78a51235f6ee189e831q9c68523cfa336917ada'
   }
-  console.log("🚀 ~ file: App.js ~ line 6 ~ App ~ code", code)
   const handleLineLogin = () => {
     window.location.href = `https://access.line.me/oauth2/v2.1/authorize?response_type=code&client_id=${lineConfig.clientID}&redirect_uri=${lineConfig.redirectURI}&state=${lineConfig.state}&scope=${lineConfig.scope}&nonce=${lineConfig.nonce}`
   }
   return (
     <div className='App'>
       <button onClick={handleLineLogin}>click</button>
+      {code && (
+        <h1>code -----&gt; {code}</h1>
+      )}
     </div>
   );
 }
